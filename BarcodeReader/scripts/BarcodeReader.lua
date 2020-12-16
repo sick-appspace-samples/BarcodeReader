@@ -36,8 +36,7 @@ provider:setPath(ImageInputPath)
 provider:setCycleTime(3000)
 
 -- Creating viewer instance and decoration
-local viewer = View.create()
-viewer:setID('viewer2D')
+local viewer = View.create("viewer2D1")
 
 local regionDecoration = View.ShapeDecoration.create()
 regionDecoration:setLineColor(0, 255, 0) -- green
