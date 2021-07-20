@@ -1,31 +1,4 @@
---[[----------------------------------------------------------------------------
 
-  Application Name:
-  BarcodeReader
-
-  Summary:
-  Reading EAN/UPC Barcodes
-
-  Description:
-  Script loads periodically all images inside the 'resources' folder.
-  If there are codes successfully found in one of the images, the content
-  and coordinates of the codes are printed.
-  Configuring any code reader requires always the following steps:
-  1. Creating CodeReader
-  2. Creating Decoder
-  3. Creating Symbology (if applicable)
-  4. Setting Symbology to Decoder (if applicable)
-  5. Setting Decoder to CodeReader
-
-  How to run:
-  The sample can be run using the SIM4000 emulator. The result is printed to the
-  console. The ImageView shows the images and marks the found codes.
-  Additional images with barcodes can be placed in the resource folder.
-
-  More Information:
-  See also Sample CodeReader for reading QR codes
-
-------------------------------------------------------------------------------]]
 --Start of Global Scope---------------------------------------------------------
 
 local ImageInputPath = 'resources/'
@@ -73,7 +46,7 @@ local function handleNewImage(img, supplements)
   local origin = SensorData.getOrigin(supplements)
   print("Image: '" .. origin .. "'")
   -- Adding the actual image to the viewer
-  viewer:add(img)
+  viewer:addImage(img)
 
   -- Calling the decoder which returns all found codes
   local codes = Image.CodeReader.decode(codeReader, img)
@@ -92,7 +65,7 @@ local function handleNewImage(img, supplements)
     local str = string.format('%s - CX: %s, CY: %s, Type: %s, Content: "%s"', i, cx, cy, type, content)
     print(str)
     -- Adding the region to the viewer
-    viewer:add(region, regionDecoration)
+    viewer:addShape(region, regionDecoration)
   end
   -- Presenting viewer to the user interface
   viewer:present()
@@ -100,3 +73,4 @@ end
 Image.Provider.Directory.register(provider, 'OnNewImage', handleNewImage)
 
 --End of Function and Event Scope------------------------------------------------
+==== BASE ====
