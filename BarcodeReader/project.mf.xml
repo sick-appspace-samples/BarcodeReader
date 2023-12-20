@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <manifest>
     <application name="BarcodeReader">
         <crown name="BarcodeReader">
@@ -7,21 +7,10 @@
         </crown>
         <meta key="author">AppSpace Sample</meta>
         <meta key="version">2.5.0</meta>
-        <meta key="licensed">false</meta>
         <meta key="priority">low</meta>
         <meta key="tags">Algorithm,Image,CodeReader</meta>
         <meta key="read-protected">false</meta>
         <meta key="copy-protected">false</meta>
-        <entry path="pages" default="Viewer.msdd">
-            <file type="application/zip">Viewer.msdd</file>
-        </entry>
-        <entry path="resources">
-            <file type="image">Barcodes1.bmp</file>
-            <file type="image">Barcodes2.bmp</file>
-            <file type="image">Barcodes3.bmp</file>
-        </entry>
-        <entry path="scripts" default="BarcodeReader.lua">
-            <file type="text/x-lua">BarcodeReader.lua</file>
-        </entry>
+        <entry default="BarcodeReader.lua" path="scripts"/>
     </application>
 </manifest>

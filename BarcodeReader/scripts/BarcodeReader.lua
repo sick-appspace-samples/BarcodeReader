@@ -9,10 +9,9 @@ provider:setPath(ImageInputPath)
 provider:setCycleTime(3000)
 
 -- Creating viewer instance and decoration
-local viewer = View.create("viewer2D1")
+local viewer = View.create()
 
-local regionDecoration = View.ShapeDecoration.create()
-regionDecoration:setLineColor(0, 255, 0) -- green
+local regionDecoration = View.ShapeDecoration.create():setLineColor(0, 255, 0) -- green
 
 -- Creating code reader
 local codeReader = Image.CodeReader.create()
@@ -30,8 +29,7 @@ Image.CodeReader.setDecoder(codeReader, 'Append', decoder)
 
 --Start of Function and Event Scope---------------------------------------------
 
---Declaration of the 'main' function as an entry point for the event loop
---@main()
+---Declaration of the 'main' function as an entry point for the event loop
 local function main()
   provider:start()
 end
@@ -39,7 +37,8 @@ end
 --Registration of the 'main' function to the 'Engine.OnStarted' event
 Script.register('Engine.OnStarted', main)
 
---@handleNewImage(img:Image, supplements:SensorData)
+---@param img Image
+---@param supplements SensorData
 local function handleNewImage(img, supplements)
   print('=====================================')
   -- Retrieving the file name from the supplementary data
@@ -73,4 +72,3 @@ end
 Image.Provider.Directory.register(provider, 'OnNewImage', handleNewImage)
 
 --End of Function and Event Scope------------------------------------------------
-==== BASE ====
